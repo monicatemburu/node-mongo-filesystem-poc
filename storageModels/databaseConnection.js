@@ -8,7 +8,7 @@ const CSVToJSON = require("csvtojson");
 let fs = require("fs");
 const multer = require("multer");
 
-const connectionUri = `mongodb+srv://m001-student:m001-student@sandbox.8u7o5ct.mongodb.net/?retryWrites=true&w=majority`;
+const connectionUri = ``;
 mongoose
   .connect(connectionUri, { useNewUrlParser: true })
   .then(() => {

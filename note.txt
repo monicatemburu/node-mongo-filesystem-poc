@@ -1,0 +1,4 @@
+{
+    feeds: [Schema.Types.Mixed],
+  },
+  { strict: false }

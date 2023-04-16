@@ -32,6 +32,14 @@ router.post("/uploadFile", upload.single("uploaded_file"), (req, res) => {
         modelName,
         databaseConnection.UserInfoSchema
       );
+      // console.log("dbName - ", UserInfo.db.name);
+      // const collectionList = await mongoose.connection.db
+      //   .listCollections()
+      //   .toArray(function (err, names) {
+      //     console.log(names); // [{ name: 'dbname.myCollect
+      //   });
+      // console.log("collections", collectionList);
+
       var file = new UserInfo({
         users,
       });
@@ -45,4 +53,14 @@ router.post("/uploadFile", upload.single("uploaded_file"), (req, res) => {
     });
 });
 
+router.get("/getData/:collectionName", async (req, res) => {
+  console.log(JSON.stringify(req.params.collectionName));
+  const UserNewInfo = await mongoose.model(
+    req.params.collectionName,
+    databaseConnection.UserInfoSchema
+  );
+  const all = await UserNewInfo.find({});
+  console.log("All", JSON.stringify(all));
+  res.json(all);
+});
 module.exports = router;

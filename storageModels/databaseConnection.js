@@ -8,7 +8,7 @@ const CSVToJSON = require("csvtojson");
 let fs = require("fs");
 const multer = require("multer");
 
-const connectionUri = ``;
+const connectionUri = `mongodb+srv://m001-student:m001-student@sandbox.8u7o5ct.mongodb.net/test?retryWrites=true&w=majority`;
 mongoose
   .connect(connectionUri, { useNewUrlParser: true })
   .then(() => {
@@ -28,4 +28,5 @@ const UserInfoSchema = new mongoose.Schema(
   { strict: false }
 );
 
+// console.log(model.db.name);
 module.exports = { UserInfoSchema };
